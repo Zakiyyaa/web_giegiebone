@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>giegiebone</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffe6f0;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff99cc;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff4080;
+            transform: scale(1.5);
+        }
+
+        .judul {
+            margin-top: 20px;
+            padding: 30px;
+        }
+
+        .judul h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .judul p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .judul button {
+            background-color: #ff4080;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+
+        .judul button:hover {
+            background-color: #ff6699;
+        }
+
+        .cart {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        .products {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .products h2 {
+            font-size: 2.5rem;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+
+        .product {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            box-sizing: border-box; 
+        }
+
+        .product img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-container {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #ff99cc;
+            color: #fff;
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        #contact a {
+            transform: 1.5;
+            transition: 0.5s;
+        }
+
+        #contact a:hover {
+            padding: 10px;
+        }
+
+        .social-icons img {
+            width: 60px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #cart-section {
+            width: 100%;
+        }
+
+        button.add-to-cart {
+            background-color: #ff4080;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button.add-to-cart:hover {
+            background-color: #ff6699;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .cart {
+                position: static;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Product</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="judul" id="home">
+            <h1>Giegiebone</h1>
+            <p>Lengkapi gayamu dengan aksesoris kekinian! harga terjangkau, kualitas terjamin</p>
+            <button onclick="window.location.href='https://wa.me/6281286227504?text=Halo%20saya%20ingin%20memesan'">Order</button>
+        </div>
+    </header>
+
+    <div class="products" id="products">
+        <h2>Product</h2>
+        <div class="container">
+            <div class="product-list" id="product-list">
+                <!-- Products will be generated by JavaScript -->
+            </div>
+            <div class="cart" id="cart-section">
+                <h2>Keranjang Belanja</h2>
+                <div id="cart-items">
+                    <p>Keranjang kosong</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about" id="about">
+        <h2>About</h2>
+        <div class="custom-container">
+            <div class="map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d721.017499723495!2d107.47417214810845!3d-6.393555903326709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjMnMzQuNyJTIDEwN8KwMjgnMjkuMSJF!5e0!3m2!1sid!2sid!4v1737647518850!5m2!1sid!2sid">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>Contact</p>
+        <div class="social-icons">
+            <a href="https://wa.me/6281286227504?text=Halo"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.instagram.com/zzavkyaa?igshid=dWJ6Znl5d3czbG1t"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.tiktok.com/@giegiebone?_t=ZS-8t3rqgKMtco&_r=1"><i class="bi bi-tiktok"></i></a>
+            <a href="http://shopee.co.id/giegieboneshop"><i class="bi bi-bag"></i></a>
+            <a href="https://youtube.com/@giegiebone?si=Y-0YgCa58k_XixRy"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/share/18sWURDB4t/"><i class="bi bi-facebook"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        const product = [
+            {
+                id: "1",
+                name: "Bowberry Strapphone",
+                image: "keychain.jpeg", 
+                price: 5000,
+                description: "Jadikan tas mu lebih menarik dengan Keychain keren dari kami!"
+            },
+            {
+                id: "2",
+                name: "Fluttershy Bracelet",
+                image: "bracelet.jpeg",
+                price: 8000,
+                description: "Tampil beda dengan Bracelet aesthetic yang bikin gaya kamu makin keren!"
+            },
+            {
+                id: "3",
+                name: "Lovesaint Strapphone",
+                image: "strapphone.jpeg",
+                price: 11000,
+                description: "Jaga ponselmu tetap aman dan bergaya dengan Strapphone kami yang kekinian!"
+            },
+            {
+                id: "4",
+                name: "Pawpaw Bracelet",
+                image: "bracelet2.jpeg",
+                price: 5000,
+                description: "Bracelet dengan manik Paw yang bisa membuatmu jadi makin imut!"
+            },
+            {
+                id: "5",
+                name: "Lovaire Bracelet",
+                image: "bracelet3.jpeg",
+                price: 6000,
+                description: "Cocok buat kamu yang ingin tampil anggun tapi dengan sentuhan floral-pink!"
+            },
+            {
+                id: "6",
+                name: "Onyx Bracelet",
+                image: "bracelet4.jpeg",
+                price: 7000,
+                description: "Bracelet bergaya klasik dengan charm kunci yang elegan!"
+            }
+        ];
+
+        const parentProduct = document.getElementById("product-list");
+        let cart = [];
+
+        // Generate product cards
+        product.forEach(product => {
+            const divCard = document.createElement("div");
+            divCard.className = "product";
+            divCard.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <h3>Rp. ${product.price.toLocaleString()}</h3>
+                <button class="add-to-cart" onclick="tambahKeranjang('${product.id}')">Pesan Sekarang</button>
+            `;
+            parentProduct.append(divCard);
+        });
+
+        function tambahKeranjang(id) {
+            // Cek apakah produk sudah ada di keranjang
+            const existingItem = cart.find(item => item.id == id);
+            
+            if (existingItem) {
+                // Jika sudah ada, tambah quantity
+                existingItem.qty += 1;
+            } else {
+                // Jika belum ada, tambahkan produk baru ke keranjang
+                let produk_yang_dipilih = product.find(data => data.id == id);
+                
+                let produk_yang_ke_keranjang = {
+                    id: produk_yang_dipilih.id,
+                    name: produk_yang_dipilih.name,
+                    price: produk_yang_dipilih.price,
+                    qty: 1
+                };
+                
+                cart.push(produk_yang_ke_keranjang);
+            }
+            
+            updateCart();
+        }
+
+        function tambahQty(id) {
+            const item = cart.find(item => item.id == id);
+            if (item) {
+                item.qty += 1;
+                updateCart();
+            }
+        }
+
+        function kurangiQty(id) {
+            const itemIndex = cart.findIndex(item => item.id == id);
+            if (itemIndex !== -1) {
+                if (cart[itemIndex].qty > 1) {
+                    cart[itemIndex].qty -= 1;
+                } else {
+                    cart.splice(itemIndex, 1);
+                }
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            let cart_items = document.getElementById("cart-items");
+            
+            if (cart.length === 0) {
+                cart_items.innerHTML = "<p>Keranjang kosong</p>";
+                return;
+            }
+            
+            cart_items.innerHTML = "";
+            
+            cart.forEach((produk) => {
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <h4>${produk.name}</h4>
+                    <p>${produk.price.toLocaleString()} x ${produk.qty}</p>
+                    <p>Total: Rp. ${(produk.price * produk.qty).toLocaleString()}</p>
+                    <div class='container-button'>
+                        <button onclick="tambahQty('${produk.id}')">+</button>
+                        <button onclick="kurangiQty('${produk.id}')">-</button>
+                    </div>
+                    <hr>
+                `;
+                cart_items.append(div);
+            });
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const totalElement = document.createElement("div");
+            totalElement.style.marginTop = "20px";
+            totalElement.style.fontWeight = "bold";
+            totalElement.innerHTML = `Total Pesanan: Rp. ${total.toLocaleString()}`;
+            
+            cart_items.append(totalElement);
+            
+            const buttonCheckout = document.createElement("button");
+            buttonCheckout.className = "add-to-cart";
+            buttonCheckout.innerText = "Checkout Via Whatsapp";
+            buttonCheckout.onclick = checkoutToWhatsapp;
+            buttonCheckout.style.marginTop = "10px";
+            buttonCheckout.style.width = "100%";
+            cart_items.append(buttonCheckout);
+        }
+
+        function checkoutToWhatsapp() {
+            let pesan = "Halo ka, saya mau beli\n";
+            cart.forEach((produk, index) => {
+                pesan += `${index + 1}. ${produk.name} x ${produk.qty} = Rp. ${(produk.price * produk.qty).toLocaleString()}\n`;
+            });
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            pesan += `\nTotal: Rp. ${total.toLocaleString()}`;
+            
+            const encodePesan = encodeURIComponent(pesan);
+            window.open(`https://wa.me/6281286227504?text=${encodePesan}`);
+        }
+    </script>
+</body>
+</html>
